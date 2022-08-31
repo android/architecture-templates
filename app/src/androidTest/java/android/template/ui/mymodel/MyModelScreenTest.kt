@@ -41,6 +41,7 @@ class MyModelScreenTest {
             MyModelScreen(FAKE_DATA, onSave = {})
         }
     }
+
     @Test
     fun firstItem_exists() {
         composeTestRule.onNodeWithText(FAKE_DATA.first()).assertExists().performClick()

@@ -56,7 +56,7 @@ fun MyModelScreen(modifier: Modifier = Modifier, viewModel: MyModelViewModel = h
     if (items is MyModelUiState.Success) {
         MyModelScreen(
             items = (items as MyModelUiState.Success).data,
-            onSave = { name -> viewModel.addMyModel(name) },
+            onSave = viewModel::addMyModel,
             modifier = modifier
         )
     }

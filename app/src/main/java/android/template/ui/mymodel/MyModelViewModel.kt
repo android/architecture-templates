@@ -37,7 +37,7 @@ class MyModelViewModel @Inject constructor(
 ) : ViewModel() {
 
     val uiState: StateFlow<MyModelUiState> = myModelRepository
-        .myModels.map { Success(data = it) }
+        .myModels.map(::Success)
         .catch { Error(it) }
         .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), Loading)
 
