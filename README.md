@@ -1,4 +1,4 @@
-Android architecture starter templates
+Android Architecture Starter Templates
 ==================
 
 A collection of templates featuring a layered architecture ready to be used in greenfield projects
@@ -11,7 +11,7 @@ Templates are compatible with the latest **stable** version of Android Studio.
 The project contains an app with a simple UI that lets the user save items in a database and shows
 a list of saved items, using the latest best practices.
 
-<img src="screenshot.png" alt="App screenshot" width="420" />
+<img src="screenshot.png" alt="App screenshot" width="320" />
 
 ### Build
 
@@ -76,5 +76,5 @@ git clone https://github.com/android/architecture-templates.git --branch multimo
 
 # License
 
-Now in Android is distributed under the terms of the Apache License (Version 2.0). See the
+This code is distributed under the terms of the Apache License (Version 2.0). See the
 [license](LICENSE) for more information.
