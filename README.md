@@ -1,8 +1,10 @@
-Android Architecture Starter Templates
+Android Architecture Starter Templates (beta)
 ==================
 
-A collection of templates featuring a layered architecture ready to be used in greenfield projects
-or quick experiments, following the [Guide to app architecture](https://developer.android.com/topic/architecture)
+✅ **What it is**: A collection of templates featuring a layered architecture ready to be used in greenfield projects
+or quick experiments, following the [Guide to app architecture](https://developer.android.com/topic/architecture).
+
+🧑‍🏫 **What it's not**: These templates are not designed to be educational code samples. For that, check out [Architecture Samples](https://github.com/android/architecture-samples), the [Now In Android sample](https://github.com/android/nowinandroid) or [Compose samples](https://github.com/android/compose-samples).
 
 Templates are compatible with the latest **stable** version of Android Studio.
 
@@ -17,18 +19,17 @@ Templates are compatible with the latest **stable** version of Android Studio.
   <tr>
     <td>
       
-### UI
+### 🖼️ UI
       
-The app contains a simple Compose UI that lets the user <br>
-      save items in a database and shows a list of <br>
-      saved items.<br>
+The app contains a simple Compose UI that shows a list of <br>
+saved strings and lets the user save new ones.<br>
       
-### Build
+### 🧱 Build
 
 * [KTS gradle files](https://docs.gradle.org/current/userguide/kotlin_dsl.html)
 * [Version catalog](https://docs.gradle.org/current/userguide/platforms.html)
 
-### Architecture
+### 🏠 Architecture
 
 * [Room Database](https://developer.android.com/training/data-storage/room)
 * Dependency injection with [Hilt](https://developer.android.com/training/dependency-injection/hilt-android)
