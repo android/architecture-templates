@@ -43,7 +43,7 @@ jobs:
         path: ./app/build/reports
         
     - name: Clean before running customizer
-      run: git clean -f .
+      run: git clean -fx .
       
     - name: Run customizer script
       run: bash customizer.sh com.android.blah MyNewModel MyNewApplication
