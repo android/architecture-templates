@@ -41,4 +41,12 @@ jobs:
       with:
         name: build-reports
         path: ./app/build/reports
-      
+  
+    - name: Run customizer script
+      run: bash customizer.sh com.android.blah MyNewModel MyNewApplication
+    
+    - name: "Check customizer ran correctly"
+      uses: andstor/file-existence-action@v1
+      with:
+        files: "app/src/main/java/com/android/blah/MyNewApplication.kt"
+        allow_failure: true
