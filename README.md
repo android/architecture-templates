@@ -2,27 +2,36 @@ Android Architecture Starter Templates
 ==================
 
 A collection of templates featuring a layered architecture ready to be used in greenfield projects
-or quick experiments.
+or quick experiments, following the [Guide to app architecture](https://developer.android.com/topic/architecture)
 
 Templates are compatible with the latest **stable** version of Android Studio.
 
+| Template  | Description |
+| ------------- | ------------- |
+| [Base](https://github.com/android/architecture-templates/tree/base)  | Reactive architecture, Compose, database, single module  |
+| [Multimodule](https://github.com/android/architecture-templates/tree/multimodule)  | Base template + multimodule  |
+
 ## Features
 
-The project contains an app with a simple UI that lets the user save items in a database and shows
-a list of saved items, using the latest best practices.
-
-<img src="screenshot.png" alt="App screenshot" width="320" />
-
+<table>
+  <tr>
+    <td>
+      
+### UI
+      
+The app contains a simple Compose UI that lets the user <br>
+      save items in a database and shows a list of <br>
+      saved items.<br>
+      
 ### Build
 
-* KTS gradle files
-* Version catalog
+* [KTS gradle files](https://docs.gradle.org/current/userguide/kotlin_dsl.html)
+* [Version catalog](https://docs.gradle.org/current/userguide/platforms.html)
 
 ### Architecture
 
-* Room Database
+* [Room Database](https://developer.android.com/training/data-storage/room)
 * Dependency injection with [Hilt](https://developer.android.com/training/dependency-injection/hilt-android)
-* [Room](https://developer.android.com/training/data-storage/room) database
 * [Jetpack ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel)
 * UI using [Jetpack Compose](https://developer.android.com/jetpack/compose) and
 [Material3](https://developer.android.com/jetpack/androidx/releases/compose-material3)
@@ -32,10 +41,13 @@ a list of saved items, using the latest best practices.
 * [Unit tests](https://developer.android.com/training/testing/local-tests)
 * [UI tests](https://developer.android.com/jetpack/compose/testing) using fake data with
 [Hilt](https://developer.android.com/training/dependency-injection/hilt-testing)
+      
+    </td><td> <img src="screenshot.png" alt="App screenshot" width="320" />  |
+    </td></tr></table
 
 ## Usage
 
-1. Clone the repository, choosing a branch. For example, to check out the `base` branch:
+1. Clone the repository, optionally choosing a branch. For example, to check out the `base` branch:
 
 ```
 git clone https://github.com/android/architecture-templates.git --branch base
@@ -57,21 +69,6 @@ on macOS:
 
 ```
 brew install bash
-```
-
-## Branches
-
-* *`base`* - single-module reactive architecture with a Room database
-
-```
-git clone https://github.com/android/architecture-templates.git --branch base
-```
-
-* *`multimodule`* - multi-module reactive architecture with a Room database, following the
-[modularization guide](https://developer.android.com/topic/modularization)
-
-```
-git clone https://github.com/android/architecture-templates.git --branch multimodule
 ```
 
 # License
