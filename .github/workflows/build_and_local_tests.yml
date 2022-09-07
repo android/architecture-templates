@@ -48,5 +48,5 @@ jobs:
     - name: "Check customizer ran correctly"
       uses: andstor/file-existence-action@v1
       with:
-        files: "shouldfail.txt"
+        files: "app/src/main/java/com/android/blah/MyNewApplication.kt"
         allow_failure: true
