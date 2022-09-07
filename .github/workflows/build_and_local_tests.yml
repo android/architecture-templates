@@ -24,11 +24,9 @@ jobs:
       run: chmod +x gradlew
       
     - name: Build debug
-      working-directory: ${{ inputs.path }}
       run: ./gradlew assembleDebug --stacktrace
       
     - name: Run local tests
-      working-directory: ${{ inputs.path }}
       run: ./gradlew testDebug --stacktrace
       
     - name: Upload build outputs (APKs)
