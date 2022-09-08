@@ -57,7 +57,7 @@ git clone https://github.com/android/architecture-templates.git --branch base
 2. Run the customizer script:
 
 ```
-./customizer.sh your.package.name DataItemType [YourAppName]
+bash customizer.sh your.package.name DataItemType [YourAppName]
 ```
 
 * `your.package.name` is your app ID (should be lowercase)
