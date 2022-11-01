@@ -13,12 +13,12 @@ Templates are compatible with the latest **stable** version of Android Studio.
 | [`base`](https://github.com/android/architecture-templates/tree/base)  | Reactive architecture, Compose, database, single module  |
 | [`multimodule`](https://github.com/android/architecture-templates/tree/multimodule)  | Base template + multimodule  |
 
+## Screenshots
+
+<img src="screenshot.png" alt="Screenshot">
+
 ## Features
 
-<table>
-  <tr>
-    <td>
-      
 ### 🖼️ UI
       
 The app contains a simple Compose UI that shows a list of <br>
@@ -42,9 +42,6 @@ saved strings and lets the user save new ones.<br>
 * [Unit tests](https://developer.android.com/training/testing/local-tests)
 * [UI tests](https://developer.android.com/jetpack/compose/testing) using fake data with
 [Hilt](https://developer.android.com/training/dependency-injection/hilt-testing)
-      
-    </td><td> <img src="screenshot.png" alt="App screenshot" width="320" />  |
-    </td></tr></table
 
 ## Usage
 
