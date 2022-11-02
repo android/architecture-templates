@@ -15,7 +15,7 @@ Templates are compatible with the latest **stable** version of Android Studio.
 
 ## Screenshots
 
-<img src="screenshot.png" alt="Screenshot">
+<img src="screenshots.png" alt="Screenshot">
 
 ## Features
 
