@@ -21,7 +21,7 @@ ksp = "1.7.20-1.0.8"
 [libraries]
 androidx-core-ktx = { module = "androidx.core:core-ktx", version.ref = "androidxCore" }
 androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidxActivity" }
-androidx-compose-compiler = { module = "androidx.compose.compiler:compiler:", version.ref = "androidxComposeCompiler" }
+androidx-compose-compiler = { module = "androidx.compose.compiler:compiler", version.ref = "androidxComposeCompiler" }
 androidx-compose-material3 = { module = "androidx.compose.material3:material3", version.ref = "androidxComposeMaterial3" }
 androidx-compose-ui = { module = "androidx.compose.ui:ui", version.ref = "androidxComposeUi" }
 androidx-compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "androidxComposeUi" }
