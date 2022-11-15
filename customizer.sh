@@ -89,5 +89,5 @@ echo "Removing additional files"
 rm -rf .google/
 rm -rf .github/
 rm -rf CONTRIBUTING.md LICENSE README.md customizer.sh
-# This should make CI fail # rm -rf .git/
+rm -rf .git/
 echo "Done!"
