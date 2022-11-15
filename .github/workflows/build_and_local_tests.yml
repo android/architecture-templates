@@ -52,14 +52,14 @@ jobs:
       uses: andstor/file-existence-action@v2
       with:
         files: "app/src/main/java/com/android/blah/MyNewApplication.kt"
-        allow_failure: false
+        fail: false
 
     - name: "Check that customizer removed all unnecessary files"
       id: customizer_rm
       uses: andstor/file-existence-action@v2
       with:
         files: ".git/config"
-        allow_failure: true
+        fail: false
     - name: "Fail if unnecessary files were not deleted"
       if: steps.customizer_rm.outputs.files_exists == 'true'
       run: exit 1
