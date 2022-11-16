@@ -41,15 +41,25 @@ jobs:
       with:
         name: build-reports
         path: ./app/build/reports
-        
+
     - name: Clean before running customizer
       run: git clean -fx .
-      
+
     - name: Run customizer script
       run: bash customizer.sh com.android.blah MyNewModel MyNewApplication
-    
-    - name: "Check customizer ran correctly"
+
+    - name: "Check that customizer ran correctly"
       uses: andstor/file-existence-action@v2
       with:
         files: "app/src/main/java/com/android/blah/MyNewApplication.kt"
-        allow_failure: true
+        fail: false
+
+    - name: "Check that customizer removed all unnecessary files"
+      id: customizer_rm
+      uses: andstor/file-existence-action@v2
+      with:
+        files: ".git/config"
+        fail: false
+    - name: "Fail if unnecessary files were not deleted"
+      if: steps.customizer_rm.outputs.files_exists == 'true'
+      run: exit 1
