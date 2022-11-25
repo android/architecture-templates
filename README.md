@@ -1,4 +1,4 @@
-Android architecture starter template
+Architecture starter template (single module)
 ==================
 
 This template is compatible with the latest **stable** version of Android Studio.
