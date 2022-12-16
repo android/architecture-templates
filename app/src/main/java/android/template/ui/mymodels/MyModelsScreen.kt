@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package android.template.ui.mymodel
+package android.template.ui.mymodels
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -42,7 +42,7 @@ import android.template.ui.theme.MyApplicationTheme
 import androidx.compose.material3.ExperimentalMaterial3Api
 
 @Composable
-fun MyModelScreen(modifier: Modifier = Modifier, viewModel: MyModelViewModel = hiltViewModel()) {
+fun MyModelsScreen(modifier: Modifier = Modifier, viewModel: MyModelsViewModel = hiltViewModel()) {
     val lifecycle = LocalLifecycleOwner.current.lifecycle
     val items by produceState<MyModelUiState>(
         initialValue = MyModelUiState.Loading,
@@ -54,7 +54,7 @@ fun MyModelScreen(modifier: Modifier = Modifier, viewModel: MyModelViewModel = h
         }
     }
     if (items is MyModelUiState.Success) {
-        MyModelScreen(
+        MyModelsScreen(
             items = (items as MyModelUiState.Success).data,
             onSave = viewModel::addMyModel,
             modifier = modifier
@@ -64,7 +64,7 @@ fun MyModelScreen(modifier: Modifier = Modifier, viewModel: MyModelViewModel = h
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-internal fun MyModelScreen(
+internal fun MyModelsScreen(
     items: List<String>,
     onSave: (name: String) -> Unit,
     modifier: Modifier = Modifier
@@ -96,7 +96,7 @@ internal fun MyModelScreen(
 @Composable
 private fun DefaultPreview() {
     MyApplicationTheme {
-        MyModelScreen(listOf("Compose", "Room", "Kotlin"), onSave = {})
+        MyModelsScreen(listOf("Compose", "Room", "Kotlin"), onSave = {})
     }
 }
 
@@ -104,6 +104,6 @@ private fun DefaultPreview() {
 @Composable
 private fun PortraitPreview() {
     MyApplicationTheme {
-        MyModelScreen(listOf("Compose", "Room", "Kotlin"), onSave = {})
+        MyModelsScreen(listOf("Compose", "Room", "Kotlin"), onSave = {})
     }
 }

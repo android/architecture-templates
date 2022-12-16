@@ -23,14 +23,14 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import android.template.ui.mymodel.MyModelScreen
+import android.template.ui.mymodels.MyModelsScreen
 
 @Composable
 fun MainNavigation() {
     val navController = rememberNavController()
 
     NavHost(navController = navController, startDestination = "main") {
-        composable("main") { MyModelScreen(modifier = Modifier.padding(16.dp)) }
+        composable("main") { MyModelsScreen(modifier = Modifier.padding(16.dp)) }
         // TODO: Add more destinations
     }
 }

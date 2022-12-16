@@ -73,7 +73,7 @@ then
 fi
 # directories
 echo "Renaming directories to $DATAMODEL"
-find ./ -name "mymodel" -type d  | sed "p;s/mymodel/${DATAMODEL,,}/" |  tr '\n' '\0' | xargs -0 -n 2 mv
+find ./ -name "mymodels" -type d  | sed "p;s/mymodels/${DATAMODEL,,}s/" |  tr '\n' '\0' | xargs -0 -n 2 mv
 
 # Rename app
 if [[ $APPNAME ]]
