@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package android.template.ui.mymodel
+package android.template.ui.mymodels
 
 
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -32,16 +32,16 @@ import android.template.data.MyModelRepository
  * See [testing documentation](http://d.android.com/tools/testing).
  */
 @OptIn(ExperimentalCoroutinesApi::class) // TODO: Remove when stable
-class MyModelViewModelTest {
+class MyModelsViewModelTest {
     @Test
     fun uiState_initiallyLoading() = runTest {
-        val viewModel = MyModelViewModel(FakeMyModelRepository())
+        val viewModel = MyModelsViewModel(FakeMyModelRepository())
         assertEquals(viewModel.uiState.first(), MyModelUiState.Loading)
     }
 
     @Test
     fun uiState_onItemSaved_isDisplayed() = runTest {
-        val viewModel = MyModelViewModel(FakeMyModelRepository())
+        val viewModel = MyModelsViewModel(FakeMyModelRepository())
         assertEquals(viewModel.uiState.first(), MyModelUiState.Loading)
     }
 }
