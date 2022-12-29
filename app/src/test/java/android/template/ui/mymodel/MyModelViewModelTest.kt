@@ -18,13 +18,18 @@ package android.template.ui.mymodel
 
 
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.test.advanceUntilIdle
 import kotlinx.coroutines.test.runTest
 import org.junit.Assert.assertEquals
+import org.junit.Rule
 import org.junit.Test
 import android.template.data.MyModelRepository
+import android.template.testutil.MainDispatcherRule
 
 /**
  * Example local unit test, which will execute on the development machine (host).
@@ -33,6 +38,10 @@ import android.template.data.MyModelRepository
  */
 @OptIn(ExperimentalCoroutinesApi::class) // TODO: Remove when stable
 class MyModelViewModelTest {
+    
+    @get:Rule
+    val mainDispatcherRule = MainDispatcherRule()
+
     @Test
     fun uiState_initiallyLoading() = runTest {
         val viewModel = MyModelViewModel(FakeMyModelRepository())
@@ -41,8 +50,17 @@ class MyModelViewModelTest {
 
     @Test
     fun uiState_onItemSaved_isDisplayed() = runTest {
+        val itemToSave = "Item"
         val viewModel = MyModelViewModel(FakeMyModelRepository())
-        assertEquals(viewModel.uiState.first(), MyModelUiState.Loading)
+
+        val collectJob = launch { viewModel.uiState.collect() }
+
+        viewModel.addMainScreen(itemToSave)
+        advanceUntilIdle()
+
+        assertEquals(viewModel.uiState.value, MyModelUiState.Success(listOf(itemToSave)))
+
+        collectJob.cancel()
     }
 }
 
