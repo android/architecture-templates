@@ -57,7 +57,7 @@ find ./ -type f -name "*.kts" -exec sed -i.bak "s/android.template/$PACKAGE/g" {
 echo "Renaming model to $DATAMODEL"
 find ./ -type f -name "*.kt" -exec sed -i.bak "s/MyModel/${DATAMODEL^}/g" {} \; # First upper case
 find ./ -type f -name "*.kt" -exec sed -i.bak "s/myModel/${DATAMODEL,}/g" {} \; # First lower case
-find ./ -type f -name "*.kt*" -exec sed -i.bak "s/mymodel/${DATAMODEL,,}/g" {} \; # All lowercase
+find ./ -type f -name "*.kt*" -exec sed -i.bak "s/-mymodel/${DATAMODEL,,}/g" {} \; # All lowercase
 
 echo "Cleaning up"
 find . -name "*.bak" -type f -delete
@@ -69,7 +69,7 @@ find ./ -name "*MyModel*.kt" | sed "p;s/MyModel/${DATAMODEL^}/" | tr '\n' '\0' |
 if [[ -n $(find ./ -name "*-mymodel") ]]
 then
   echo "Renaming modules to $DATAMODEL"
-  find ./ -name "*-mymodel" -type d  | sed "p;s/mymodel/${DATAMODEL,,}/" |  tr '\n' '\0' | xargs -0 -n 2 mv
+  find ./ -name "*-mymodel" -type d  | sed "p;s/-mymodel/${DATAMODEL,,}/" |  tr '\n' '\0' | xargs -0 -n 2 mv
 fi
 # directories
 echo "Renaming directories to $DATAMODEL"

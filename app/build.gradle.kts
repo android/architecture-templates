@@ -76,10 +76,10 @@ android {
 
 dependencies {
 
-    implementation(project(":core-ui"))
-    implementation(project(":core-data"))
-    implementation(project(":feature-mymodel"))
-    androidTestImplementation(project(":core-testing"))
+    implementation(project(":core:ui"))
+    implementation(project(":data:-mymodel"))
+    implementation(project(":feature:-mymodel"))
+    androidTestImplementation(project(":core:testing"))
 
     // Core Android dependencies
     implementation(libs.androidx.core.ktx)
