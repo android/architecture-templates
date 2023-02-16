@@ -37,8 +37,8 @@ class MyModelViewModel @Inject constructor(
 ) : ViewModel() {
 
     val uiState: StateFlow<MyModelUiState> = myModelRepository
-        .myModels.map { Success(data = it) }
-        .catch { Error(it) }
+        .myModels.map<List<String>, MyModelUiState> { Success(data = it) }
+        .catch { emit(Error(it)) }
         .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), Loading)
 
     fun addMyModel(name: String) {
