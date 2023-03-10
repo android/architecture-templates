@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package android.template.ui.mymodel
+package android.template.ui.mymodels
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -26,13 +26,13 @@ import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 import android.template.data.MyModelRepository
-import android.template.ui.mymodel.MyModelUiState.Error
-import android.template.ui.mymodel.MyModelUiState.Loading
-import android.template.ui.mymodel.MyModelUiState.Success
+import android.template.ui.mymodels.MyModelUiState.Error
+import android.template.ui.mymodels.MyModelUiState.Loading
+import android.template.ui.mymodels.MyModelUiState.Success
 import javax.inject.Inject
 
 @HiltViewModel
-class MyModelViewModel @Inject constructor(
+class MyModelsViewModel @Inject constructor(
     private val myModelRepository: MyModelRepository
 ) : ViewModel() {
 
