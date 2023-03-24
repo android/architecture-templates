@@ -18,8 +18,9 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
-    alias(libs.plugins.kotlin.kapt)
     alias(libs.plugins.hilt.gradle)
+    alias(libs.plugins.ksp)
+    alias(libs.plugins.kotlin.kapt)
 }
 
 android {
@@ -37,6 +38,11 @@ android {
         vectorDrawables {
             useSupportLibrary = true
         }
+
+        // Enable room auto-migrations
+        ksp {
+            arg("room.schemaLocation", "$projectDir/schemas")
+        }
     }
 
     buildTypes {
@@ -52,7 +58,7 @@ android {
     }
 
     kotlinOptions {
-         jvmTarget = "11"
+        jvmTarget = "11"
     }
 
     buildFeatures {
@@ -75,6 +81,10 @@ android {
 }
 
 dependencies {
+
+    val composeBom = platform(libs.androidx.compose.bom)
+    implementation(composeBom)
+    androidTestImplementation(composeBom)
 
     implementation(project(":core-ui"))
     implementation(project(":core-data"))
