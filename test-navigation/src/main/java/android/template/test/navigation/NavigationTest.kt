@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package android.template.ui
+package android.template.test.navigation
 
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import androidx.compose.ui.test.onNodeWithText
@@ -23,6 +23,7 @@ import dagger.hilt.android.testing.HiltAndroidTest
 import org.junit.Rule
 import org.junit.Test
 import android.template.core.data.di.fakeMyModels
+import android.template.ui.MainActivity
 
 @HiltAndroidTest
 class NavigationTest {
