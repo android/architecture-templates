@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package android.template.test.navigation
+package android.template.test.app
 
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import androidx.compose.ui.test.onNodeWithText
@@ -26,7 +26,7 @@ import android.template.core.data.di.fakeMyModels
 import android.template.ui.MainActivity
 
 @HiltAndroidTest
-class NavigationTest {
+class AppTest {
 
     @get:Rule(order = 0)
     var hiltRule = HiltAndroidRule(this)
@@ -40,4 +40,3 @@ class NavigationTest {
         composeTestRule.onNodeWithText(fakeMyModels.first(), substring = true).assertExists()
     }
 }
-
