@@ -45,11 +45,13 @@ saved strings and lets the user save new ones.<br>
 
 ## Usage
 
-1. Clone the repository, optionally choosing a branch. For example, to check out the `base` branch:
+1. Clone the repository, optionally choosing a branch and a target directory. For example, to check out the `base` branch:
 
 ```
-git clone https://github.com/android/architecture-templates.git --branch base
+git clone https://github.com/android/architecture-templates.git --branch base targetDirectory
 ```
+
+For the customizer to work, dont open the project in Android Studio yet.
 
 2. Run the customizer script:
 
