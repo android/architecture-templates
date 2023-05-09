@@ -16,28 +16,21 @@
 
 @Suppress("DSL_SCOPE_VIOLATION") // Remove when fixed https://youtrack.jetbrains.com/issue/KTIJ-19369
 plugins {
-    alias(libs.plugins.android.library)
+    alias(libs.plugins.android.test)
     alias(libs.plugins.kotlin.android)
-    alias(libs.plugins.ksp)
     alias(libs.plugins.kotlin.kapt)
 }
 
 android {
-    namespace = "android.template.core.database"
+    namespace = "android.template.test.navigation"
     compileSdk = 33
+    targetProjectPath = ":app"
 
     defaultConfig {
         minSdk = 21
+        targetSdk = 33
 
         testInstrumentationRunner = "android.template.core.testing.HiltTestRunner"
-        consumerProguardFiles("consumer-rules.pro")
-
-        // The schemas directory contains a schema file for each version of the Room database.
-        // This is required to enable Room auto migrations.
-        // See https://developer.android.com/reference/kotlin/androidx/room/AutoMigration.
-        ksp {
-            arg("room.schemaLocation", "$projectDir/schemas")
-        }
     }
 
     buildFeatures {
@@ -58,10 +51,18 @@ android {
 }
 
 dependencies {
-    // Arch Components
-    implementation(libs.androidx.room.runtime)
-    implementation(libs.androidx.room.ktx)
-    ksp(libs.androidx.room.compiler)
-    implementation(libs.hilt.android)
-    kapt(libs.hilt.compiler)
+    implementation(project(":app"))
+    implementation(project(":core-data"))
+    implementation(project(":core-testing"))
+    implementation(project(":feature-mymodel"))
+
+    // Testing
+    implementation(libs.androidx.test.core)
+
+    // Hilt and instrumented tests.
+    implementation(libs.hilt.android.testing)
+    kapt(libs.hilt.android.compiler)
+
+    // Compose
+    implementation(libs.androidx.compose.ui.test.junit4)
 }
