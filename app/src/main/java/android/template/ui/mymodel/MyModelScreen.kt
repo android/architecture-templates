@@ -16,6 +16,7 @@
 
 package android.template.ui.mymodel
 
+import android.template.ui.theme.MyApplicationTheme
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -28,31 +29,17 @@ import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.produceState
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalLifecycleOwner
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.lifecycle.Lifecycle.State.STARTED
-import androidx.lifecycle.repeatOnLifecycle
-import android.template.ui.theme.MyApplicationTheme
-import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 
 @Composable
 fun MyModelScreen(modifier: Modifier = Modifier, viewModel: MyModelViewModel = hiltViewModel()) {
-    val lifecycle = LocalLifecycleOwner.current.lifecycle
-    val items by produceState<MyModelUiState>(
-        initialValue = MyModelUiState.Loading,
-        key1 = lifecycle,
-        key2 = viewModel
-    ) {
-        lifecycle.repeatOnLifecycle(state = STARTED) {
-            viewModel.uiState.collect { value = it }
-        }
-    }
+    val items by viewModel.uiState.collectAsStateWithLifecycle()
     if (items is MyModelUiState.Success) {
         MyModelScreen(
             items = (items as MyModelUiState.Success).data,
@@ -62,7 +49,6 @@ fun MyModelScreen(modifier: Modifier = Modifier, viewModel: MyModelViewModel = h
     }
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 internal fun MyModelScreen(
     items: List<String>,
