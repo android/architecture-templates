@@ -2,7 +2,7 @@
 androidGradlePlugin = "8.0.1"
 androidxActivity = "1.7.1"
 androidxComposeBom = "2023.05.01"
-androidxComposeCompiler = "1.4.6"
+androidxComposeCompiler = "1.5.2"
 androidxCore = "1.10.1"
 androidxHilt = "1.0.0"
 androidxLifecycle = "2.6.1"
@@ -11,11 +11,11 @@ androidxRoom = "2.5.1"
 androidxTestCore = "1.5.0"
 androidxTestExt = "1.1.5"
 androidxTestRunner = "1.5.2"
-coroutines = "1.6.4"
+coroutines = "1.7.3"
 hilt = "2.46"
 junit = "4.13.2"
-kotlin = "1.8.20"
-ksp = "1.8.20-1.0.11"
+kotlin = "1.9.10"
+ksp = "1.9.10-1.0.13"
 
 [libraries]
 androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidxActivity" }
