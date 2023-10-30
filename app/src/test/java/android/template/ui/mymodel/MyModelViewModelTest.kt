@@ -36,13 +36,13 @@ class MyModelViewModelTest {
     @Test
     fun uiState_initiallyLoading() = runTest {
         val viewModel = MyModelViewModel(FakeMyModelRepository())
-        assertEquals(viewModel.uiState.first(), MyModelUiState.Loading)
+        assertEquals(MyModelUiState.Loading, viewModel.uiState.first())
     }
 
     @Test
     fun uiState_onItemSaved_isDisplayed() = runTest {
         val viewModel = MyModelViewModel(FakeMyModelRepository())
-        assertEquals(viewModel.uiState.first(), MyModelUiState.Loading)
+        assertEquals(MyModelUiState.Loading, viewModel.uiState.first())
     }
 }
 
