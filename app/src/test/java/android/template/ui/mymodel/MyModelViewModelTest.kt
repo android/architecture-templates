@@ -62,8 +62,9 @@ class MyModelViewModelTest {
     @Test
     fun uiState_onItemSaved_isDisplayed() = runTest {
         val viewModel = MyModelViewModel(FakeMyModelRepository())
-        assertEquals(MyModelUiState.Loading, viewModel.uiState.value)
         assertEquals(MyModelUiState.Success(emptyList()), viewModel.uiState.first())
+        viewModel.addMyModel("Compose")
+        assertEquals(MyModelUiState.Success(listOf("Compose")), viewModel.uiState.first())
     }
 }
 
