@@ -49,14 +49,14 @@ jobs:
       run: bash customizer.sh com.android.blah MyNewModel MyNewApplication
 
     - name: "Check that customizer ran correctly"
-      uses: andstor/file-existence-action@v2
+      uses: andstor/file-existence-action@v3
       with:
         files: "app/src/main/java/com/android/blah/MyNewApplication.kt"
         fail: false
 
     - name: "Check that customizer removed all unnecessary files"
       id: customizer_rm
-      uses: andstor/file-existence-action@v2
+      uses: andstor/file-existence-action@v3
       with:
         files: ".git/config"
         fail: false
