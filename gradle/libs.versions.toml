@@ -4,7 +4,6 @@ androidxCore = "1.13.1"
 androidxLifecycle = "2.7.0"
 androidxActivity = "1.9.0"
 androidxComposeBom = "2024.05.00"
-androidxComposeCompiler = "1.5.14"
 androidxHilt = "1.2.0"
 androidxNavigation = "2.7.7"
 androidxRoom = "2.6.1"
@@ -14,13 +13,12 @@ androidxTestRunner = "1.5.2"
 coroutines = "1.8.1"
 hilt = "2.51.1"
 junit = "4.13.2"
-kotlin = "1.9.24"
-ksp = "1.9.24-1.0.20"
+kotlin = "2.0.0"
+ksp = "2.0.0-1.0.23"
 
 [libraries]
 androidx-core-ktx = { module = "androidx.core:core-ktx", version.ref = "androidxCore" }
 androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidxActivity" }
-androidx-compose-compiler = { module = "androidx.compose.compiler:compiler", version.ref = "androidxComposeCompiler" }
 androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "androidxComposeBom" }
 androidx-compose-material3 = { group = "androidx.compose.material3", name = "material3"}
 androidx-compose-ui = { group = "androidx.compose.ui", name = "ui"}
@@ -50,6 +48,7 @@ kotlinx-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-t
 [plugins]
 android-application = { id = "com.android.application", version.ref = "androidGradlePlugin" }
 android-library = { id = "com.android.library", version.ref = "androidGradlePlugin" }
+compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp"}
