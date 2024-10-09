@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package android.template.testdi
+package android.template.test.app.testdi
 
 import dagger.Binds
 import dagger.Module

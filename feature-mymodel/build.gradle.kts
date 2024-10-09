@@ -64,6 +64,7 @@ dependencies {
     implementation(libs.androidx.activity.compose)
 
     // Arch Components
+    implementation(libs.androidx.lifecycle.runtime.compose)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.lifecycle.viewmodel.compose)
     implementation(libs.androidx.hilt.navigation.compose)

@@ -12,12 +12,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
-    - name: set up JDK 11
-      uses: actions/setup-java@v3
+    - uses: actions/checkout@v4
+    - name: set up JDK 17
+      uses: actions/setup-java@v4
       with:
-        java-version: '11'
-        distribution: 'temurin'
+        java-version: 17
+        distribution: 'zulu'
         cache: gradle
 
     - name: Grant execute permission for gradlew
@@ -30,14 +30,14 @@ jobs:
       run: ./gradlew testDebug --stacktrace
       
     - name: Upload build outputs (APKs)
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: build-outputs
         path: ./app/build/outputs
 
     - name: Upload build reports
       if: always()
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: build-reports
         path: ./app/build/reports
@@ -49,14 +49,14 @@ jobs:
       run: bash customizer.sh com.android.blah MyNewModel MyNewApplication
 
     - name: "Check that customizer ran correctly"
-      uses: andstor/file-existence-action@v2
+      uses: andstor/file-existence-action@v3
       with:
         files: "app/src/main/java/com/android/blah/MyNewApplication.kt"
         fail: false
 
     - name: "Check that customizer removed all unnecessary files"
       id: customizer_rm
-      uses: andstor/file-existence-action@v2
+      uses: andstor/file-existence-action@v3
       with:
         files: ".git/config"
         fail: false
