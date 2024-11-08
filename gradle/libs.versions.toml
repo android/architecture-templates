@@ -10,11 +10,11 @@ androidxRoom = "2.6.1"
 androidxTestCore = "1.6.1"
 androidxTestExt = "1.2.1"
 androidxTestRunner = "1.6.2"
-coroutines = "1.8.1"
+coroutines = "1.9.0"
 hilt = "2.52"
 junit = "4.13.2"
-kotlin = "2.0.10"
-ksp = "2.0.10-1.0.24"
+kotlin = "2.0.21"
+ksp = "2.0.21-1.0.27"
 
 [libraries]
 androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidxActivity" }
