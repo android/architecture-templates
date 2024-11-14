@@ -24,7 +24,7 @@ plugins {
 
 android {
     namespace = "android.template.feature.mymodel"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         minSdk = 21
