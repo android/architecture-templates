@@ -23,12 +23,12 @@ plugins {
 
 android {
     namespace = "android.template.test.navigation"
-    compileSdk = 34
+    compileSdk = 35
     targetProjectPath = ":app"
 
     defaultConfig {
         minSdk = 21
-        targetSdk = 34
+        targetSdk = 35
 
         testInstrumentationRunner = "android.template.core.testing.HiltTestRunner"
     }
