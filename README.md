@@ -1,4 +1,4 @@
-Android Architecture Starter Templates (beta)
+Android Architecture Starter Templates
 ==================
 
 ✅ **What it is**: A collection of templates featuring a layered architecture ready to be used in greenfield projects
