@@ -23,7 +23,7 @@ plugins {
 
 android {
     namespace = "android.template.core.ui"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         minSdk = 21
