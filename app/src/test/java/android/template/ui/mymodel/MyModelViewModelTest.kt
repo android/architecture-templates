@@ -17,14 +17,22 @@
 package android.template.ui.mymodel
 
 
-import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.first
-import kotlinx.coroutines.flow.flow
-import kotlinx.coroutines.test.runTest
-import org.junit.Assert.assertEquals
-import org.junit.Test
 import android.template.data.MyModelRepository
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.update
+import kotlinx.coroutines.test.UnconfinedTestDispatcher
+import kotlinx.coroutines.test.resetMain
+import kotlinx.coroutines.test.runTest
+import kotlinx.coroutines.test.setMain
+import org.junit.After
+import org.junit.Assert.assertEquals
+import org.junit.Before
+import org.junit.Test
 
 /**
  * Example local unit test, which will execute on the development machine (host).
@@ -33,27 +41,40 @@ import android.template.data.MyModelRepository
  */
 @OptIn(ExperimentalCoroutinesApi::class) // TODO: Remove when stable
 class MyModelViewModelTest {
+
+    @Before
+    fun setUp() {
+        Dispatchers.setMain(UnconfinedTestDispatcher())
+    }
+
+    @After
+    fun tearDown() {
+        Dispatchers.resetMain()
+    }
+
     @Test
     fun uiState_initiallyLoading() = runTest {
         val viewModel = MyModelViewModel(FakeMyModelRepository())
-        assertEquals(viewModel.uiState.first(), MyModelUiState.Loading)
+        assertEquals(MyModelUiState.Loading, viewModel.uiState.value)
+        assertEquals(MyModelUiState.Success(emptyList()), viewModel.uiState.first())
     }
 
     @Test
     fun uiState_onItemSaved_isDisplayed() = runTest {
         val viewModel = MyModelViewModel(FakeMyModelRepository())
-        assertEquals(viewModel.uiState.first(), MyModelUiState.Loading)
+        assertEquals(MyModelUiState.Success(emptyList()), viewModel.uiState.first())
+        viewModel.addMyModel("Compose")
+        assertEquals(MyModelUiState.Success(listOf("Compose")), viewModel.uiState.first())
     }
 }
 
 private class FakeMyModelRepository : MyModelRepository {
 
-    private val data = mutableListOf<String>()
+    private val data = MutableStateFlow(emptyList<String>())
 
-    override val myModels: Flow<List<String>>
-        get() = flow { emit(data.toList()) }
+    override val myModels: StateFlow<List<String>> = data.asStateFlow()
 
     override suspend fun add(name: String) {
-        data.add(0, name)
+        data.update { it.plus(name) }
     }
 }
