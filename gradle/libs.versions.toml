@@ -1,20 +1,20 @@
 [versions]
-androidGradlePlugin = "8.7.2"
+androidGradlePlugin = "8.7.3"
 androidxActivity = "1.9.3"
-androidxComposeBom = "2024.11.00"
+androidxComposeBom = "2024.12.01"
 androidxCore = "1.15.0"
 androidxHilt = "1.2.0"
 androidxLifecycle = "2.8.7"
-androidxNavigation = "2.8.4"
+androidxNavigation = "2.8.5"
 androidxRoom = "2.6.1"
 androidxTestCore = "1.6.1"
 androidxTestExt = "1.2.1"
 androidxTestRunner = "1.6.2"
 coroutines = "1.9.0"
-hilt = "2.52"
+hilt = "2.53.1"
 junit = "4.13.2"
-kotlin = "2.0.21"
-ksp = "2.0.21-1.0.27"
+kotlin = "2.1.0"
+ksp = "2.1.0-1.0.29"
 
 [libraries]
 androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidxActivity" }
