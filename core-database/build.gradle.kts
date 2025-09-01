@@ -24,10 +24,10 @@ plugins {
 
 android {
     namespace = "android.template.core.database"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
-        minSdk = 21
+        minSdk = 23
 
         testInstrumentationRunner = "android.template.core.testing.HiltTestRunner"
         consumerProguardFiles("consumer-rules.pro")
