@@ -78,7 +78,8 @@ android {
 
 dependencies {
     implementation(project(":core-ui"))
-    implementation(project(":feature-mymodel"))
+    implementation(project(":feature-mymodel-api"))
+    implementation(project(":feature-mymodel-impl"))
 
     // Core Android dependencies
     implementation(libs.androidx.core.ktx)
@@ -92,8 +93,6 @@ dependencies {
     // Arch Components
     implementation(libs.androidx.lifecycle.runtime.compose)
     implementation(libs.androidx.lifecycle.viewmodel.compose)
-    implementation(libs.androidx.navigation.compose)
-    implementation(libs.androidx.hilt.navigation.compose)
 
     // Compose
     val composeBom = platform(libs.androidx.compose.bom)
@@ -104,4 +103,8 @@ dependencies {
 
     // Tooling
     debugImplementation(libs.androidx.compose.ui.tooling)
+
+    // Navigation
+    implementation(libs.androidx.navigation3.ui)
+    implementation(libs.androidx.lifecycle.viewmodel.navigation3)
 }

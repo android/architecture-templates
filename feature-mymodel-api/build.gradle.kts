@@ -16,24 +16,21 @@
 
 @Suppress("DSL_SCOPE_VIOLATION") // Remove when fixed https://youtrack.jetbrains.com/issue/KTIJ-19369
 plugins {
-    alias(libs.plugins.android.test)
+    alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
-    alias(libs.plugins.kotlin.kapt)
+    alias(libs.plugins.compose.compiler)
+    alias(libs.plugins.kotlin.serialization)
 }
 
 android {
-    namespace = "android.template.test.navigation"
+    namespace = "android.template.feature.mymodel"
     compileSdk = 36
-    targetProjectPath = ":app"
-
     defaultConfig {
         minSdk = 23
-        targetSdk = 36
-
-        testInstrumentationRunner = "android.template.core.testing.HiltTestRunner"
+        consumerProguardFiles("consumer-rules.pro")
     }
-
     buildFeatures {
+        compose = true
         aidl = false
         buildConfig = false
         renderScript = false
@@ -51,18 +48,7 @@ android {
 }
 
 dependencies {
-    implementation(project(":app"))
-    implementation(project(":core-data"))
-    implementation(project(":core-testing"))
-    implementation(project(":feature-mymodel-impl"))
-
-    // Testing
-    implementation(libs.androidx.test.core)
-
-    // Hilt and instrumented tests.
-    implementation(libs.hilt.android.testing)
-    kapt(libs.hilt.android.compiler)
-
-    // Compose
-    implementation(libs.androidx.compose.ui.test.junit4)
+    implementation(libs.kotlinx.serialization.core)
+    implementation(libs.kotlinx.serialization.json)
+    implementation(libs.androidx.navigation3.runtime)
 }
