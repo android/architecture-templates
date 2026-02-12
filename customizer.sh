@@ -71,9 +71,7 @@ then
   echo "Renaming modules to $DATAMODEL"
   find ./ -name "*-mymodel-*" -type d  | sed "p;s/mymodel/${DATAMODEL,,}/" |  tr '\n' '\0' | xargs -0 -n 2 mv
 fi
-# directories# directories
-echo "Renaming directories to $DATAMODEL"
-find ./ -name "mymodel" -type d  | sed "p;s/mymodel$/${DATAMODEL,,}/" |  tr '\n' '\0' | xargs -0 -n 2 mv
+# directories
 echo "Renaming directories to $DATAMODEL"
 find ./ -name "mymodel" -type d  | sed "p;s/mymodel/${DATAMODEL,,}/" |  tr '\n' '\0' | xargs -0 -n 2 mv
 
