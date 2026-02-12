@@ -69,7 +69,7 @@ find ./ -name "*MyModel*.kt" | sed "p;s/MyModel/${DATAMODEL^}/" | tr '\n' '\0' |
 if [[ -n $(find ./ -name "*-mymodel") ]]
 then
   echo "Renaming modules to $DATAMODEL"
-  find ./ -name "*-mymodel" -type d  | sed "p;s/mymodel/${DATAMODEL,,}/" |  tr '\n' '\0' | xargs -0 -n 2 mv
+  find ./ -name "*-mymodel-*" -type d  | sed "p;s/mymodel/${DATAMODEL,,}/" |  tr '\n' '\0' | xargs -0 -n 2 mv
 fi
 # directories
 echo "Renaming directories to $DATAMODEL"
