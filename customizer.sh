@@ -65,13 +65,19 @@ find . -name "*.bak" -type f -delete
 # Rename files
 echo "Renaming files to $DATAMODEL"
 find ./ -name "*MyModel*.kt" | sed "p;s/MyModel/${DATAMODEL^}/" | tr '\n' '\0' | xargs -0 -n 2 mv
-# module names
-if [[ -n $(find ./ -name "*-mymodel-*") ]]
+# Rename feature module names
+if [[ -n $(find ./ -name "*-mymodel") ]]
 then
   echo "Renaming modules to $DATAMODEL"
-  find ./ -name "*-mymodel-*" -type d  | sed "p;s/mymodel/${DATAMODEL,,}/" |  tr '\n' '\0' | xargs -0 -n 2 mv
+  find ./ -name "*-mymodel" -type d  | sed "p;s/mymodel/${DATAMODEL,,}/" |  tr '\n' '\0' | xargs -0 -n 2 mv
 fi
-# directories
+# Rename feature navigation module names
+if [[ -n $(find ./ -name "*-mymodel-navigation") ]]
+then
+  echo "Renaming modules to $DATAMODEL"
+  find ./ -name "*-mymodel-navigation" -type d  | sed "p;s/mymodel/${DATAMODEL,,}/" |  tr '\n' '\0' | xargs -0 -n 2 mv
+fi
+# Rename directories
 echo "Renaming directories to $DATAMODEL"
 find ./ -name "mymodel" -type d  | sed "p;s/mymodel/${DATAMODEL,,}/" |  tr '\n' '\0' | xargs -0 -n 2 mv
 
