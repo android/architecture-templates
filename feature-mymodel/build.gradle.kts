@@ -54,7 +54,7 @@ android {
 dependencies {
     implementation(project(":core-data"))
     implementation(project(":core-ui"))
-    implementation(project(":feature-mymodel-api"))
+    implementation(project(":feature-mymodel-navigation"))
 
     androidTestImplementation(project(":core-testing"))
 

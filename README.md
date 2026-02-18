@@ -17,6 +17,15 @@ This template is compatible with the latest **stable** version of Android Studio
 * Unit tests
 * UI tests using fake data with Hilt
 
+## Modules
+The following module types are used:
+
+- `core` modules contain objects that are used by one or more feature modules.
+- `feature-mymodel` contains the `mymodel` feature.
+- `feature-mymodel-navigation` contains the navigation keys for the `mymodel` feature. This allows other feature modules to navigate to `mymodel`'s screens without creating a dependency on `feature-mymodel`. An alternative approach is to use an [api / implementation split](https://developer.android.com/topic/modularization/patterns#dependency_injection).
+
+Check the [modularization guidance](https://developer.android.com/topic/modularization) for more information.
+
 ## Usage
 
 1. Clone this branch
