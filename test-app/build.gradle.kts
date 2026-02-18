@@ -55,6 +55,7 @@ dependencies {
     implementation(project(":core-data"))
     implementation(project(":core-testing"))
     implementation(project(":feature-mymodel"))
+    implementation(project(":feature-mymodel-navigation"))
 
     // Testing
     implementation(libs.androidx.test.core)

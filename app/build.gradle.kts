@@ -78,8 +78,8 @@ android {
 
 dependencies {
     implementation(project(":core-ui"))
-    implementation(project(":feature-mymodel-api"))
-    implementation(project(":feature-mymodel-impl"))
+    implementation(project(":feature-mymodel"))
+    implementation(project(":feature-mymodel-navigation"))
 
     // Core Android dependencies
     implementation(libs.androidx.core.ktx)
