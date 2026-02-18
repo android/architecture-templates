@@ -23,7 +23,7 @@ plugins {
 }
 
 android {
-    namespace = "android.template.feature.mymodel"
+    namespace = "android.template.feature.mymodel.navigation"
     compileSdk = 36
     defaultConfig {
         minSdk = 23
