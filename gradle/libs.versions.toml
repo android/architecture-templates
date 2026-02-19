@@ -12,12 +12,12 @@ androidxTestRunner = "1.7.0"
 coroutines = "1.10.2"
 hilt = "2.57.2"
 junit = "4.13.2"
-kotlin = "2.2.21"
+kotlin = "2.3.10"
 # TODO update version
-kotlinxSerializationCore = "1.9.0"
+kotlinxSerializationCore = "1.10.0"
 ksp = "2.3.2"
 lifecycleViewmodelNav3 = "2.10.0"
-nav3Core = "1.0.0"
+nav3Core = "1.0.1"
 
 [libraries]
 androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidxActivity" }
