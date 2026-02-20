@@ -13,7 +13,6 @@ coroutines = "1.10.2"
 hilt = "2.57.2"
 junit = "4.13.2"
 kotlin = "2.2.21"
-# TODO update version
 kotlinxSerializationCore = "1.10.0"
 ksp = "2.3.2"
 lifecycleViewmodelNav3 = "2.10.0"
