@@ -1,5 +1,5 @@
 [versions]
-androidGradlePlugin = "8.13.1"
+androidGradlePlugin = "8.13.2"
 androidxActivity = "1.12.0"
 androidxComposeBom = "2025.11.01"
 androidxCore = "1.17.0"
@@ -12,9 +12,9 @@ androidxTestRunner = "1.7.0"
 coroutines = "1.10.2"
 hilt = "2.57.2"
 junit = "4.13.2"
-kotlin = "2.2.21"
+kotlin = "2.3.10"
 kotlinxSerializationCore = "1.10.0"
-ksp = "2.3.2"
+ksp = "2.3.5"
 lifecycleViewmodelNav3 = "2.10.0"
 nav3Core = "1.0.1"
 
