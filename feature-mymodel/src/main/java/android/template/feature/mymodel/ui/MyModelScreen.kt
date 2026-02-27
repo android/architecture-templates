@@ -23,6 +23,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.safeDrawingPadding
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
@@ -49,7 +50,7 @@ fun MyModelScreen(
     if (items is Success) {
         MyModelScreen(
             items = (items as Success).data,
-            onSave = { name -> viewModel.addMyModel(name) },
+            onSave = viewModel::addMyModel,
             modifier = modifier
         )
     }
@@ -61,13 +62,14 @@ internal fun MyModelScreen(
     onSave: (name: String) -> Unit,
     modifier: Modifier = Modifier
 ) {
-    Column(modifier) {
+    Column(modifier.safeDrawingPadding()) {
         var nameMyModel by remember { mutableStateOf("Compose") }
         Row(
             modifier = Modifier.fillMaxWidth().padding(bottom = 24.dp),
             horizontalArrangement = Arrangement.spacedBy(16.dp)
         ) {
             TextField(
+                modifier = Modifier.weight(1f),
                 value = nameMyModel,
                 onValueChange = { nameMyModel = it }
             )
@@ -92,7 +94,7 @@ private fun DefaultPreview() {
     }
 }
 
-@Preview(showBackground = true, widthDp = 480)
+@Preview(showBackground = true, widthDp = 340)
 @Composable
 private fun PortraitPreview() {
     MyApplicationTheme {

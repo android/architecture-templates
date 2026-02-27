@@ -42,7 +42,7 @@ do
   echo "Moving files to $n/java/$SUBDIR"
   mv $n/java/android/template/* $n/java/$SUBDIR
   echo "Removing old $n/java/android/template"
-  rm -rf mv $n/java/android
+  rm -rf $n/java/android
 done
 
 # Rename package and imports

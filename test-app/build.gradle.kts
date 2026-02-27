@@ -19,8 +19,8 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 @Suppress("DSL_SCOPE_VIOLATION") // Remove when fixed https://youtrack.jetbrains.com/issue/KTIJ-19369
 plugins {
     alias(libs.plugins.android.test)
-    alias(libs.plugins.kotlin.android)
-    alias(libs.plugins.kotlin.kapt)
+
+    alias(libs.plugins.ksp)
 }
 
 android {
@@ -56,6 +56,8 @@ kotlin {
 
 dependencies {
     implementation(project(":app"))
+    val composeBom = platform(libs.androidx.compose.bom)
+    implementation(composeBom)
     implementation(project(":core-data"))
     implementation(project(":core-testing"))
     implementation(project(":feature-mymodel"))
@@ -66,7 +68,7 @@ dependencies {
 
     // Hilt and instrumented tests.
     implementation(libs.hilt.android.testing)
-    kapt(libs.hilt.android.compiler)
+    ksp(libs.hilt.compiler)
 
     // Compose
     implementation(libs.androidx.compose.ui.test.junit4)

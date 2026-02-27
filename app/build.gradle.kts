@@ -16,13 +16,11 @@
 
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
-@Suppress("DSL_SCOPE_VIOLATION") // Remove when fixed https://youtrack.jetbrains.com/issue/KTIJ-19369
 plugins {
     alias(libs.plugins.android.application)
-    alias(libs.plugins.kotlin.android)
     alias(libs.plugins.hilt.gradle)
     alias(libs.plugins.ksp)
-    alias(libs.plugins.kotlin.kapt)
+
     alias(libs.plugins.compose.compiler)
 }
 
@@ -39,11 +37,6 @@ android {
 
         vectorDrawables {
             useSupportLibrary = true
-        }
-
-        // Enable room auto-migrations
-        ksp {
-            arg("room.schemaLocation", "$projectDir/schemas")
         }
     }
 
@@ -74,6 +67,11 @@ android {
     }
 }
 
+// Enable room auto-migrations
+ksp {
+    arg("room.schemaLocation", "$projectDir/schemas")
+}
+
 // Migrate from kotlinOptions to compilerOptions
 kotlin {
     compilerOptions {
@@ -93,7 +91,9 @@ dependencies {
 
     // Hilt Dependency Injection
     implementation(libs.hilt.android)
-    kapt(libs.hilt.compiler)
+    ksp(libs.hilt.compiler)
+    kspAndroidTest(libs.hilt.compiler)
+    kspTest(libs.hilt.compiler)
 
     // Arch Components
     implementation(libs.androidx.lifecycle.runtime.compose)
