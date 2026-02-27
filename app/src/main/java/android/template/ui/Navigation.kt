@@ -18,6 +18,7 @@ package android.template.ui
 
 import android.template.ui.mymodel.MyModelScreen
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.safeDrawingPadding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
@@ -37,7 +38,7 @@ fun MainNavigation() {
             entry<Main> {
                 MyModelScreen(
                     onItemClick = { navKey -> backStack.add(navKey) },
-                    modifier = Modifier.padding(16.dp)
+                    modifier = Modifier.safeDrawingPadding().padding(16.dp)
                 )
             }
         }

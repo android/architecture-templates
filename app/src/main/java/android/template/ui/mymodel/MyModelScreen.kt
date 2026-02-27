@@ -42,14 +42,14 @@ import androidx.navigation3.runtime.NavKey
 fun MyModelScreen(
     onItemClick: (NavKey) -> Unit,
     modifier: Modifier = Modifier,
-    viewModel: MyModelViewModel = hiltViewModel()
+    viewModel: MyModelViewModel = hiltViewModel(),
 ) {
     val items by viewModel.uiState.collectAsStateWithLifecycle()
     if (items is MyModelUiState.Success) {
         MyModelScreen(
             items = (items as MyModelUiState.Success).data,
             onSave = viewModel::addMyModel,
-            modifier = modifier
+            modifier = modifier,
         )
     }
 }
@@ -58,20 +58,26 @@ fun MyModelScreen(
 internal fun MyModelScreen(
     items: List<String>,
     onSave: (name: String) -> Unit,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
 ) {
     Column(modifier) {
         var nameMyModel by remember { mutableStateOf("Compose") }
         Row(
-            modifier = Modifier.fillMaxWidth().padding(bottom = 24.dp),
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(bottom = 24.dp),
             horizontalArrangement = Arrangement.spacedBy(16.dp)
         ) {
             TextField(
+                modifier = Modifier.weight(1f),
                 value = nameMyModel,
                 onValueChange = { nameMyModel = it }
             )
 
-            Button(modifier = Modifier.width(96.dp), onClick = { onSave(nameMyModel) }) {
+            Button(
+                modifier = Modifier.width(96.dp),
+                onClick = { onSave(nameMyModel) }
+            ) {
                 Text("Save")
             }
         }
@@ -91,7 +97,7 @@ private fun DefaultPreview() {
     }
 }
 
-@Preview(showBackground = true, widthDp = 480)
+@Preview(showBackground = true, widthDp = 340)
 @Composable
 private fun PortraitPreview() {
     MyApplicationTheme {
