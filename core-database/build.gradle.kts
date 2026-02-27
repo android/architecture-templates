@@ -16,10 +16,8 @@
 
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
-@Suppress("DSL_SCOPE_VIOLATION") // Remove when fixed https://youtrack.jetbrains.com/issue/KTIJ-19369
 plugins {
     alias(libs.plugins.android.library)
-
     alias(libs.plugins.ksp)
 
 }
@@ -30,16 +28,8 @@ android {
 
     defaultConfig {
         minSdk = 23
-
         testInstrumentationRunner = "android.template.core.testing.HiltTestRunner"
         consumerProguardFiles("consumer-rules.pro")
-
-        // The schemas directory contains a schema file for each version of the Room database.
-        // This is required to enable Room auto migrations.
-        // See https://developer.android.com/reference/kotlin/androidx/room/AutoMigration.
-        ksp {
-            arg("room.schemaLocation", "$projectDir/schemas")
-        }
     }
 
     buildFeatures {
@@ -53,6 +43,10 @@ android {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
     }
+}
+
+ksp {
+    arg("room.schemaLocation", "$projectDir/schemas")
 }
 
 kotlin {

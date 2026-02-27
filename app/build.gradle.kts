@@ -20,7 +20,6 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.hilt.gradle)
     alias(libs.plugins.ksp)
-
     alias(libs.plugins.compose.compiler)
 }
 
@@ -34,6 +33,8 @@ android {
         targetSdk = 36
         versionCode = 1
         versionName = "1.0"
+
+        testInstrumentationRunner = "android.template.core.testing.HiltTestRunner"
 
         vectorDrawables {
             useSupportLibrary = true
@@ -56,11 +57,10 @@ android {
         compose = true
         aidl = false
         buildConfig = false
-        renderScript = false
         shaders = false
     }
 
-    packagingOptions {
+    packaging {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
@@ -83,6 +83,7 @@ dependencies {
     implementation(project(":core-ui"))
     implementation(project(":feature-mymodel"))
     implementation(project(":feature-mymodel-navigation"))
+
 
     // Core Android dependencies
     implementation(libs.androidx.core.ktx)
@@ -112,4 +113,12 @@ dependencies {
     // Navigation
     implementation(libs.androidx.navigation3.ui)
     implementation(libs.androidx.lifecycle.viewmodel.navigation3)
+
+    // Instrumented tests
+    androidTestImplementation(composeBom)
+    androidTestImplementation(project(":core-testing"))
+    androidTestImplementation(libs.androidx.test.runner)
+    androidTestImplementation(libs.hilt.android.testing)
+    androidTestImplementation(libs.androidx.test.ext.junit)
+    androidTestImplementation(libs.androidx.compose.ui.test.junit4)
 }

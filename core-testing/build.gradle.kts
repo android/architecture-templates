@@ -16,10 +16,8 @@
 
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
-@Suppress("DSL_SCOPE_VIOLATION") // Remove when fixed https://youtrack.jetbrains.com/issue/KTIJ-19369
 plugins {
     alias(libs.plugins.android.library)
-
     alias(libs.plugins.ksp)
 }
 
@@ -29,7 +27,6 @@ android {
 
     defaultConfig {
         minSdk = 23
-
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
     }
@@ -37,7 +34,6 @@ android {
     buildFeatures {
         aidl = false
         buildConfig = false
-        renderScript = false
         shaders = false
     }
 
@@ -54,7 +50,6 @@ kotlin {
 }
 
 dependencies {
-
     implementation(libs.androidx.test.runner)
     implementation(libs.hilt.android.testing)
 }
