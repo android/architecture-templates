@@ -27,7 +27,7 @@ android {
     compileSdk = 37
 
     defaultConfig {
-        minSdk = 23
+        minSdk = 24
         testInstrumentationRunner = "android.template.core.testing.HiltTestRunner"
         consumerProguardFiles("consumer-rules.pro")
     }
@@ -35,7 +35,6 @@ android {
     buildFeatures {
         aidl = false
         buildConfig = false
-        renderScript = false
         shaders = false
     }
 
