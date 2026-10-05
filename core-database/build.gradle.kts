@@ -24,7 +24,7 @@ plugins {
 
 android {
     namespace = "android.template.core.database"
-    compileSdk = 36
+    compileSdk = 37
 
     defaultConfig {
         minSdk = 23
